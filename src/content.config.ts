@@ -6,36 +6,6 @@ const other = defineCollection({
   loader: glob({ base: "src/content/other", pattern: "**/*.{md,mdx}" }),
 });
 
-const quickInfo = defineCollection({
-  loader: file("src/content/info.json"),
-  schema: z.object({
-    id: z.number(),
-    icon: z.custom<keyof typeof iconsJson>(),
-    text: z.string(),
-  })
-});
-
-const socials = defineCollection({
-  loader: file("src/content/socials.json"),
-  schema: z.object({
-    id: z.number(),
-    icon: z.custom<keyof typeof iconsJson>(),
-    text: z.string(),
-    link: z.string().url(),
-  })
-});
-
-const workExperience = defineCollection({
-  loader: file("src/content/work.json"),
-  schema: z.object({
-    id: z.number(),
-    title: z.string(),
-    company: z.string(),
-    duration: z.string(),
-    description: z.string(),
-  })
-});
-
 const tags = defineCollection({
   loader: file("src/content/tags.json"),
   schema: z.object({
@@ -58,4 +28,4 @@ const posts = defineCollection({
   })
 });
 
-export const collections = { tags, posts, other, quickInfo, socials };
+export const collections = { tags, posts, other };

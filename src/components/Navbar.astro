@@ -7,12 +7,7 @@ const path = Astro.url.pathname;
   <a class="site-title" href="/">Гайдмастер</a>
   <ul>
     <li>
-      <a href="/blog" class:list={{ active: path === '/blog' }}>Блог</a>
-    </li>
-    <li class="nav-separator">/</li>
-    <li>
-      <input id="search" type="text" placeholder="Поиск (Ctrl+K)" />
-      <div id="search-results"></div>
+      <a href="/blog" class:list={{ active: path === '/blog' }}>Все посты</a>
     </li>
   </ul>
   <button class="mobile-nav-toggle">
@@ -70,9 +65,6 @@ const path = Astro.url.pathname;
     results.classList.add('active');
   });
 
-  searchElement?.addEventListener('blur', () => {
-    searchElement.placeholder = 'Поиск (Ctrl+K)';
-  });
 
   searchElement?.addEventListener('blur', () => {
     setTimeout(() => {
