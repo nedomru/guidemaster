@@ -14,6 +14,7 @@ import cmd_run from "/public/posts/tracing/part-one/1.png"
 import tracert_windows_run from "/public/posts/tracing/part-one/2.png"
 import terminal_run_mac from "/public/posts/tracing/part-one/3.png"
 import traceroute_macos_run from "/public/posts/tracing/part-one/4.png"
+import tracert_error_1 from "/public/posts/tracing/part-one/5.png"
 
 ### Вступление
 
@@ -115,8 +116,10 @@ import traceroute_macos_run from "/public/posts/tracing/part-one/4.png"
 1. Ошибка **Request timed out** ((Превышен интервал ожидания))<br/>
 Ошибка говорит о истекшем времени ожидания ответа от ресурса. Такое может происходить если на сервере узла настроено игнорирование опроса ICMP-пакетами.<br/><br/>
 Если в Hostname последнего шага нет этой ошибки - все хорошо. Если там такая же ошибка - значит либо IP/домен в поле Hostname указан некорректно, либо по какой-то причине соединение обрывается на последнем отображаемом шаге
-2. Ошибка **Destination host unreachable** (Узел назначения недоступен)<br/>
-Ошибка означает, что утилите не удалось определить конечный сервер, принадлежащий указанному IP или домену. Скорее всего некорректно заполнен проблемный ресурс
+2. Ошибка **Destination host unreachable** (Не удается разрешить системное имя узла)<br/>
+    <Image src={tracert_error_1} width="600px" alt="tracert error 1"/>
+    Ошибка означает, что утилите не удалось определить конечный сервер, принадлежащий указанному IP или домену. Скорее всего некорректно заполнен проблемный ресурс
+
 3. Символы * * * вместо времени отклика<br/>
 Узел не отвечает на ICMP-запросы из-за настроенного игнорирования опроса ICMP-пакетами.<br/>
 Важно: если следующие шаги от проблемного так же показывают * * * - можно запустить трассировку повторно с параметром -T<br/>
